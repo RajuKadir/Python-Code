@@ -7,13 +7,13 @@ ClientID = "#####"
 SecretID = "#####"
 Scope = "#####"
 
-##Grab current month and year 
+#Grab current month and year 
 
 current_month = datetime.now().strftime('%m')
 current_year_full = datetime.now().strftime('%Y')
 EndDate = '{}-{}'.format(current_year_full , current_month)
 
-##Grab Token Key from EMSI API
+#Grab Token Key from EMSI API
 
 url = "https://auth.emsicloud.com/connect/token"
 
@@ -26,7 +26,7 @@ token_json = response.json()
 
 token_name = token_json['access_token']
 
-##Grab Job Postings data by LAU1_Name
+#Grab Job Postings data by LAU1_Name
 
 regions = ['North East Lincolnshire','North Lincolnshire','Lincoln','North Kesteven','South Kesteven','East Lindsey','West Lindsey','Boston','South Holland','Rutland']
 
@@ -52,7 +52,7 @@ for element in regions:
 
     df.to_csv(f"{element}.csv", index=False)
     
-##Combine CSVs into one
+#Combine CSVs into one
 
 os.chdir(os.path.dirname(__file__))
 
